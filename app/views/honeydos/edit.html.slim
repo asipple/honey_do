@@ -1,0 +1,12 @@
+h1 edit a honey do
+= form_for @honeydo do |item|
+  p
+    = item.label :title
+    br
+    = item.text_field :title
+  p
+    =item.label :content
+    br
+    =item.text_area :content
+  p
+    =item.submit "Update Honey do"

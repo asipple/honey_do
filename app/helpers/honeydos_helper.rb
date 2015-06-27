@@ -1,0 +1,2 @@
+module HoneydosHelper
+end

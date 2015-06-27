@@ -1,0 +1,16 @@
+h1 New Honey do
+- if @honeydo.errors.any?
+  ul
+    - @honeydo.errors.full_messages.each do |msg|
+      li = msg
+= form_for @honeydo do |new_honey|
+  p
+    = new_honey.label :title
+    br
+    = new_honey.text_field :title
+  p
+    = new_honey.label :content
+    br
+    = new_honey.text_area :content
+  p
+    = new_honey.submit "Submit a New Honey do"

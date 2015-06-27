@@ -1,0 +1,9 @@
+h1 Honey do
+- @honeydo.each do |item|
+  ul
+    h1 = link_to item.title, item
+    p = link_to "Edit Honey do", edit_honeydo_path(item)
+    p = link_to "Delete Honey do", item,:data => {:confirm => "Are you sure?"}, :method => :delete
+    hr
+
+p = link_to "Add a new honey do", new_honeydo_path
