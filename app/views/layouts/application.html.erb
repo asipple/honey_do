@@ -9,10 +9,10 @@
   <body>
   <% if logged_in? %>
     welcome, <%= current_user.email %>
-    <%= link_to "log out", session_path("current"), method: "delete" %>
+    <%= link_to "log out", logout_path%>
   <% else %>
-    <%= link_to "Sign Up", new_user_path %>
-    <%= link_to "Log In", new_session_path %>
+    <%= link_to "Sign Up", signup_path %>
+    <%= link_to "Log In", login_path %>
   <% end %>
 
     <% flash.each do |key, value| %>

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # if new user they are automatically signed in
       session[:user_id] = @user.id
       redirect_to honeydos_path, notice: "Thank you for signing up!"
     else

@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email].downcase)
     if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
       redirect_to honeydos_path, notice: "logged in!"
     else
       flash.now.alert = "Email or password is invalid"
