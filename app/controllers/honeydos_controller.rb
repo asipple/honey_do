@@ -9,11 +9,11 @@ class HoneydosController < ApplicationController
   end
 
   def new
-    @honeydo = Honeydo.new
+    @honeydo = current_user.honeydos.build
   end
 
   def create
-    @honeydo = Honeydo.new(honeydo_params)
+    @honeydo = current_user.honeydos.build(honeydo_params)
     if @honeydo.save
       redirect_to honeydos_path, :notice => "Your Honey do was saved"
     else
