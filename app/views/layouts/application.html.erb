@@ -9,6 +9,7 @@
   <body>
   <% if logged_in? %>
     welcome, <%= current_user.email %>
+    <%= link_to "log out", session_path("current"), method: "delete" %>
   <% else %>
     <%= link_to "Sign Up", new_user_path %>
     <%= link_to "Log In", new_session_path %>
