@@ -1,4 +1,5 @@
 class HoneydosController < ApplicationController
+  before_filter :authorize
   def index
     @honeydo = Honeydo.all
   end

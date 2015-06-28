@@ -2,6 +2,7 @@ h1 Honey do
 - @honeydo.each do |item|
   ul
     h1 = link_to item.title, item
+    small = item.created_at.strftime("%B %d, %Y, %l:%M%p")
     p = link_to "Edit Honey do", edit_honeydo_path(item)
     p = link_to "Delete Honey do", item,:data => {:confirm => "Are you sure?"}, :method => :delete
     hr
