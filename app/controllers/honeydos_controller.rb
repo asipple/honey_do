@@ -1,7 +1,8 @@
 class HoneydosController < ApplicationController
   before_filter :authorize
   def index
-    @honeydo = Honeydo.all
+    # this is awesome! A honeydo only shows up for the user who created it
+    @honeydo = Honeydo.where(user_id: current_user)
   end
 
   def show
@@ -9,10 +10,12 @@ class HoneydosController < ApplicationController
   end
 
   def new
+    #This builds a honeydo based on the current user
     @honeydo = current_user.honeydos.build
   end
 
   def create
+    #Post a honeydo with the current user
     @honeydo = current_user.honeydos.build(honeydo_params)
     if @honeydo.save
       redirect_to honeydos_path, :notice => "Your Honey do was saved"
