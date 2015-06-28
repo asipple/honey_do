@@ -1,0 +1,22 @@
+h1 Sign up
+= form_for @user do |f|
+  - if @user.errors.any?
+    h2 There seems to be some problems
+    ul
+      - @user.errors.full_messages.each do |msg|
+        li = msg
+
+
+  =f.label :email
+  br
+  = f.text_field :email
+  br
+  = f.label :password
+  br
+  =f.password_field :password
+  br
+  = f.label :password_confirmation
+  br
+  = f.password_field :password_confimation
+  br
+  = f.submit

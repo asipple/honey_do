@@ -6,12 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<% flash.each do |key, value| %>
-  <p><%= value %></p>
-<% end %>
+  <body>
+  <% if logged_in? %>
+    welcome, <%= current_user.email %>
+  <% else %>
+    <%= link_to "Sign Up", new_user_path %>
+    <%= link_to "Log In", new_session_path %>
+  <% end %>
 
-<%= yield %>
+    <% flash.each do |key, value| %>
+      <p><%= value %></p>
+    <% end %>
 
-</body>
+    <%= yield %>
+
+  </body>
 </html>
